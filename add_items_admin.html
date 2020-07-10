@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ADD ITEMS</title>
+</head>
+<body>
+        <style>
+                body
+                {
+                    background-image: url('img/admin.jpeg');
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-size: cover;
+                    background-size: 100% 100%;
+                }
+            </style>
+<div align="center">
+    <h2 style="color:ghostwhite;padding: 70px">Add items Form</h2>
+    
+    <form action="add_items.py" method="POST">
+    	<table align="center" style="padding:70px">
+        <tr>
+        	<th style="color:ghostwhite">Enter name: </th>
+        	<th style="color:ghostwhite">Enter size: </th>
+            <th style="color:ghostwhite">Enter price:</th>
+            
+            
+        </tr>
+        <tr>
+
+        	<td><input type="text"  name="tname"></td>
+        
+        <td><input type="text" name="tsize"></td>
+        
+        <td><input type="text" name="tprice"></td>
+    
+    	</tr>
+    <tr>
+      <td colspan="6" align="center"><input type="submit" value="Add"></td>
+
+
+    </tr>
+        
+
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SAM SignUp</title>
+	
+	<style type="text/css">
+
+		body{
+			background-color: #000;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		}
+
+		header{
+			width: 40%;
+			background-color: #fce00d;
+			margin: auto;
+			font-size: 30px;
+			text-align: center;
+			padding: 20px;
+			
+		}
+		
+		.wrap{
+			width: 40%;
+			padding: 20px;
+			margin: auto;
+			background-color: #fff;
+			
+		}
+
+		.des{
+			width: 95%;
+			padding: 10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		label{
+			font-size: 18px;
+		}
+
+		.btn{
+			height: 15%;
+			width: 49%;
+			background-color: #fce00d;
+			border: none;
+			font-size: 18px;
+			padding: 6px;
+			margin-top: 10px;
+		}
+
+		a{
+			color: #000;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+
+		window.history.forward();
+		function noBack()
+		{
+			window.history.forward();
+		}
+
+		function mail()
+		{
+			var r = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			var mail=document.getElementById("email").value;
+			if(r.test(mail))
+			{
+				document.getElementById("errorEmail").innerHTML=" ";
+			}
+			else
+			{
+				document.getElementById("errorEmail").innerHTML="<font color='red'>Invalid Email ID</font>"
+			}
+		}
+		
+		function password()
+		{
+		var pass=document.getElementById("pass").value;
+	    var p =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+	    if(p.test(pass))
+	    {
+	    	document.getElementById("errorPass").innerHTML=" ";
+	    }
+	    else
+	    {    	
+	    	document.getElementById("errorPass").innerHTML="<font color='red'>Password <br/><ul><li>must contains one digit from 0-9</li><li> must contains one lowercase characters</li><li>must contains one uppercase characters</li><li>must contains one special symbols in the list @#$%</li><li>length at least 6 characters and maximum of 20</li></ul></font>";
+   			}
+		}
+
+		function match_pass()
+		{
+		var p1=document.getElementById("pass").value;
+		var p2=document.getElementById("conf").value;
+		if(p2.length==0)
+		{
+				document.getElementById("errorMatch").innerHTML="<font color='red'>Please re-enter the password</font>";
+		}
+		else if(p1==p2)
+			{
+				document.getElementById("errorMatch").innerHTML=" ";
+			}
+		
+			else
+				{
+					document.getElementById("errorMatch").innerHTML="<font color='red'><b>Password Does not match</b></font>";
+				}
+		}
+
+		
+	</script>
+</head>
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
+	<header>Sign Up Here!</header>
+	<div class="wrap">
+		<form id="frm" method="post" action="signup.py" autocomplete="off">
+		
+		<label>User Name :</label><br>
+		<input type="text" id="uname" name="uname" required placeholder="John Doe" class="des"><br>
+		
+		<label>Email ID :</label><br>
+		<input type="text" id="email" name="email" required placeholder="xyz@example.com" class="des" onblur="mail()">
+		<span id="errorEmail"></span><br>
+		
+		<label>DOB :</label><br>
+		<input type="date" id="dob" name="dob" class="des" required>
+		<span id="errorDob"></span><br>
+		
+		<label>Gender :</label><br>
+		<input type="radio" id="gen" name="gen" value="male" required>Male
+		<input type="radio" id="gen" name="gen" value="female" required>Female
+		<input type="radio" id="gen" name="gen" value="other" required>Other<br><br>
+		
+		<label>Create Password :</label><br>
+		<input type="password" id="pass" name="pass" required placeholder="********" class="des" onblur="password()">
+		<span id="errorPass"></span><br>
+		
+		<label>Confirm Password :</label><br>
+		<input type="password" id="conf" name="conf" required placeholder="********" class="des" onblur="match_pass()">
+		<span id="errorMatch"></span><br>
+		
+		<input type="reset" name="reset" class="btn">
+		<input type="submit" value="Sign Up" class="btn"><br><br>
+		<a href="Index.html"><p style="text-align: center;">Go Back</p></a>
+		</form>
+		
+</div>
+</body>
+</html>
